@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Home - Ali Yaghuti</title>
+        <title>Home - Ali Yaghuti </title>
       </Head>
       <NavBarContainer>
         <main>
