@@ -16,7 +16,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import Footer from "../Footer";
 
 const Container = ({ children }) => {
-  const { colorMode } = useColorMode(light);
+  const { colorMode } = useColorMode();
   const [display, changeDisplay] = useState("none");
 
   const bgColor = {
