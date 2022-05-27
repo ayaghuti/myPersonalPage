@@ -36,15 +36,17 @@ const Contact = () => {
         <Box as="main" mx={"auto"} mb={8} maxWidth="1000px" px={2}>
           <Flex
             flexDirection="column"
-            justifyContent="flex-start"
-            // alignItems="flex-start"
+            alignContent={"center"}
+            alignItems="center"
             maxWidth="1000px"
           >
             <Box>
               <Heading mb={4}>Way to contact me:</Heading>
             </Box>
-            <Box>
-              <Text fontSize="2xl">You can reach me via:</Text>
+            <Box align="center">
+              <Text fontSize="2xl" ml={4} align="center">
+                You can reach me via:
+              </Text>
               <List
                 spacing={3}
                 my={3}
