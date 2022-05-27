@@ -20,7 +20,7 @@ const Hero = () => {
         </Box>
         <Box ml={[0, 2, 8, 8]} align="center">
           <Heading as="h1" size={"xl"} my={[0, 0, 4, 4]} py={2}>
-            Hi, my name's Ali Yaghuti.
+            Hi, my name is Ali Yaghuti.
           </Heading>
           <Heading as="h2" size={"lg"} my={[0, 0, 4, 4]} py={2}>
             Welcome to my site!
