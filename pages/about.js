@@ -1,5 +1,6 @@
-import NavBarContainer from "@/components/navbar/Container";
 import Head from "next/head";
+// import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   useColorMode,
   Heading,
@@ -11,7 +12,15 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+import NavBarContainer from "@/components/navbar/Container";
+
 const About = () => {
+  const router = useRouter();
+  const { t } = useTranslation("about");
+
   const { colorMode } = useColorMode();
   const colorSecondary = {
     light: "gray.700",
@@ -21,7 +30,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>About - Ali Yaghuti</title>
+        <title>{t("title")}</title>
       </Head>
       <NavBarContainer>
         <Box as="main" mx={"auto"} mb={8} maxWidth="1000px" px={2}>
@@ -39,32 +48,35 @@ const About = () => {
               src="me.jpg"
               alt="Ali Yaghuti"
             />
+            {/* <Image
+              src="/public/me.png"
+              alt="Picture of the author"
+              width={2204}
+              height={1120}
+            /> */}
             <Heading mb={2} px={4}>
-              Ali Yaghuti
+              {t("name")}
             </Heading>
             <Text px={4} fontSize={["lg", "lg", "xl", "xl"]}>
-              Ali Yaghutiniat is an Electronics Engineer who loves coding. It is
-              really amazing being able to create something from almost nothing.
-              Like a painter who gives life to a blank convas. To do so I have
-              gone through a roadmap from bootcamper in{" "}
+              {t("about-part-one")}{" "}
               <Link
                 href="https://www.freecodecamp.org/certification/ayaghutiniat/javascript-algorithms-and-data-structures"
                 isExternal
                 color={"tomato"}
               >
-                freeCodeCamp <ExternalLinkIcon mx="2px" />
+                {t("about-part-two")} <ExternalLinkIcon mx="2px" />
               </Link>{" "}
               and{" "}
               <Link href="https://w3schools.com/" isExternal color={"tomato"}>
-                W3schools <ExternalLinkIcon mx="2px" />
+                {t("about-part-three")} <ExternalLinkIcon mx="2px" />
               </Link>{" "}
-              to coding along with awesome youtubers like{" "}
+              {t("about-part-four")}{" "}
               <Link
                 href="https://www.youtube.com/c/TraversyMedia"
                 isExternal
                 color={"tomato"}
               >
-                Traversy Media <ExternalLinkIcon mx="2px" />
+                {t("about-part-five")} <ExternalLinkIcon mx="2px" />
               </Link>
               ,{" "}
               <Link
@@ -72,11 +84,9 @@ const About = () => {
                 isExternal
                 color={"tomato"}
               >
-                The Net Ninja <ExternalLinkIcon mx="2px" />
+                {t("about-part-six")} <ExternalLinkIcon mx="2px" />
               </Link>{" "}
-              and much others to grab ideas and solutions for further progress
-              and going into actual creation in this field. It has been a real
-              hobby for me.
+              {t("about-part-seven")}
             </Text>
           </Flex>
         </Box>
@@ -86,3 +96,12 @@ const About = () => {
 };
 
 export default About;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["about", "nav"])),
+      // Will be passed to the page component as props
+    },
+  };
+}

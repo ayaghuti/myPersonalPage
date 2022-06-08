@@ -6,6 +6,9 @@ import {
 import customTheme from "../styles/theme";
 import { Global, css } from "@emotion/react";
 import Head from "next/head";
+import SEO from "../next-seo.config";
+import { DefaultSeo } from "next-seo";
+import { appWithTranslation } from "next-i18next";
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -124,6 +127,7 @@ function MyApp({ Component, pageProps }) {
             useSystemColorMode: false,
           }}
         >
+          <DefaultSeo {...SEO} />
           <GlobalStyle>
             <Component {...pageProps} />
           </GlobalStyle>
@@ -133,4 +137,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

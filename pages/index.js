@@ -1,21 +1,22 @@
-import NavBarContainer from "@/components/navbar/Container";
 import Head from "next/head";
-import { useColorMode, Text, Flex, Stack, Box } from "@chakra-ui/react";
+
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+import { Text, Box } from "@chakra-ui/react";
+
+import NavBarContainer from "@/components/navbar/Container";
 import Hero from "@/components/Hero";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 
 const Home = () => {
-  const { colorMode } = useColorMode();
-  const colorSecondary = {
-    light: "gray.700",
-    dark: "gray.400",
-  };
+  const { t } = useTranslation("common");
 
   return (
     <>
       <Head>
-        <title>Home - Ali Yaghuti </title>
+        <title>{t("title")}</title>
       </Head>
       <NavBarContainer>
         <main>
@@ -23,17 +24,16 @@ const Home = () => {
             <Hero />
             <Box>
               <Text px={4} fontSize="xl">
-                Formerly I was working in the Electronics field. More precisely
-                I was working more often on micro-controllers and assembly
-                language and later on C++ developing platforms related to them
-                and finaly with FPGAs (Field Programble Gate Arrays). However I
-                was lucky to take the chance and get involved in web programming
-                and very soon I found myself immersed in coding the web. No
-                doubt that it is interesting and I am open to any chance to dive
-                even deeper to it.
+                {t("intro")}
               </Text>
             </Box>
+            <br />
+            <br />
+            <hr />
             <Education />
+            <br />
+            <br />
+            <hr />
             <Skills />
           </Box>
         </main>
@@ -43,3 +43,18 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "nav",
+        "hero",
+        "education",
+        "skills",
+      ])),
+      // Will be passed to the page component as props
+    },
+  };
+}

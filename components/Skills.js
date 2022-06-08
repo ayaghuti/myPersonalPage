@@ -1,3 +1,5 @@
+import { useTranslation } from "next-i18next";
+
 import {
   Heading,
   UnorderedList,
@@ -8,12 +10,14 @@ import {
 } from "@chakra-ui/react";
 
 const Skills = () => {
+  const { t } = useTranslation("skills");
+
   return (
     <>
       <Box mt={8} pl={2} ml={8}>
         <Box>
           <Heading as="h2" size={"lg"} mx={2} my={1} color={"green.600"}>
-            Skills:
+            {t("heading-skills")}
           </Heading>
         </Box>
         <Box>
@@ -24,7 +28,7 @@ const Skills = () => {
           >
             <Box w="250px" my={0}>
               <Text fontSize="2xl" color={"pink.500"}>
-                Coding:
+                {t("subheading-coding")}
               </Text>
               <UnorderedList
                 spacing={3}
@@ -35,16 +39,16 @@ const Skills = () => {
                 // align={"center"}
                 justifyContent="flex-start"
               >
-                <ListItem>HTML</ListItem>
-                <ListItem>CSS</ListItem>
-                <ListItem>Javascript</ListItem>
-                <ListItem>Some experience with Python and C++</ListItem>
+                <ListItem>{t("skill-coding-list-html")}</ListItem>
+                <ListItem>{t("skill-coding-list-css")}</ListItem>
+                <ListItem>{t("skill-coding-list-javascript")}</ListItem>
+                <ListItem>{t("skill-coding-list")}</ListItem>
               </UnorderedList>
             </Box>
 
             <Box w="250px" my={4}>
               <Text fontSize="2xl" color={"pink.500"}>
-                Frameworks:
+                {t("subheading-frameworks")}
               </Text>
               <UnorderedList
                 spacing={3}
@@ -55,18 +59,18 @@ const Skills = () => {
                 // align={"center"}
                 justifyContent="flex-start"
               >
-                <ListItem>React</ListItem>
-                <ListItem>Redux</ListItem>
-                <ListItem>Nextjs</ListItem>
-                <ListItem>Nodejs</ListItem>
-                <ListItem>Chakra-ui</ListItem>
-                <ListItem>Tailwind-css</ListItem>
-                <ListItem>Materialize-css</ListItem>
+                <ListItem>{t("frameworks-list-react")}</ListItem>
+                <ListItem>{t("frameworks-list-redux")}</ListItem>
+                <ListItem>{t("frameworks-list-next")}</ListItem>
+                <ListItem>{t("frameworks-list-node")}</ListItem>
+                <ListItem>{t("frameworks-list-chakra")}</ListItem>
+                <ListItem>{t("frameworks-list-tailwind")}</ListItem>
+                <ListItem>{t("frameworks-list-materialize")}</ListItem>
               </UnorderedList>
             </Box>
             <Box w="250px" my={4}>
               <Text fontSize="2xl" color={"pink.500"}>
-                Data Bases:
+                {t("subheading-databases")}
               </Text>
               <UnorderedList
                 spacing={3}
@@ -77,13 +81,13 @@ const Skills = () => {
                 // align={"center"}
                 justifyContent="flex-start"
               >
-                <ListItem>Google Firebase</ListItem>
-                <ListItem>MongoDB</ListItem>
+                <ListItem>{t("database-firebase")}</ListItem>
+                <ListItem>{t("database-mongo")}</ListItem>
               </UnorderedList>
             </Box>
             <Box w="250px" my={4}>
               <Text fontSize="2xl" color={"pink.500"}>
-                Languages:
+                {t("subheading-languages")}
               </Text>
               <UnorderedList
                 spacing={3}
@@ -94,15 +98,15 @@ const Skills = () => {
                 // align={"center"}
                 justifyContent="flex-start"
               >
-                <ListItem>Persian-Mother Tongue</ListItem>
-                <ListItem>English-B2</ListItem>
-                <ListItem>French-B1</ListItem>
-                <ListItem>German-A2</ListItem>
+                <ListItem>{t("langs-fa")}</ListItem>
+                <ListItem>{t("langs-en")}</ListItem>
+                <ListItem>{t("langs-fr")}</ListItem>
+                <ListItem>{t("langs-de")}</ListItem>
               </UnorderedList>
             </Box>
             <Box w="250px" my={4}>
               <Text fontSize="2xl" color={"pink.500"}>
-                Hobbies:
+                {t("subheading-hobbies")}
               </Text>
               <UnorderedList
                 spacing={3}
@@ -113,11 +117,11 @@ const Skills = () => {
                 // align={"center"}
                 justifyContent="flex-start"
               >
-                <ListItem>Coding</ListItem>
-                <ListItem>Reading</ListItem>
-                <ListItem>Singing</ListItem>
-                <ListItem>Figure Skating</ListItem>
-                <ListItem>Jogging</ListItem>
+                <ListItem>{t("hobbies-coding")}</ListItem>
+                <ListItem>{t("hobbies-reading")}</ListItem>
+                <ListItem>{t("hobbies-singing")}</ListItem>
+                <ListItem>{t("hobbies-skating")}</ListItem>
+                <ListItem>{t("hobbies-jogging")}</ListItem>
               </UnorderedList>
             </Box>
           </Stack>

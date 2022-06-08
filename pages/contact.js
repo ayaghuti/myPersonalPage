@@ -1,5 +1,7 @@
 import NavBarContainer from "@/components/navbar/Container";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import {
   useColorMode,
   Heading,
@@ -20,7 +22,13 @@ import {
   FaTelegram,
 } from "react-icons/fa";
 
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 const Contact = () => {
+  const router = useRouter();
+  const { t } = useTranslation("contact");
+
   const { colorMode } = useColorMode();
   const colorSecondary = {
     light: "gray.700",
@@ -30,10 +38,10 @@ const Contact = () => {
   return (
     <>
       <Head>
-        <title>Contact - Ali Yaghuti</title>
+        <title>{t("title")}</title>
       </Head>
       <NavBarContainer>
-        <Box as="main" mx={"auto"} mb={8} maxWidth="1000px" px={2}>
+        <Box as="main" mx={"auto"} mb={4} maxWidth="1000px" px={2}>
           <Flex
             flexDirection="column"
             alignContent={"center"}
@@ -41,11 +49,11 @@ const Contact = () => {
             maxWidth="1000px"
           >
             <Box>
-              <Heading mb={4}>Way to contact me:</Heading>
+              <Heading mb={4}>{t("heading")}</Heading>
             </Box>
             <Box align="center">
               <Text fontSize="2xl" ml={4} align="center">
-                You can reach me via:
+                {t("h2")}
               </Text>
               <List
                 spacing={3}
@@ -58,13 +66,14 @@ const Contact = () => {
               >
                 <ListItem>
                   <EmailIcon as={EmailIcon} color="gray.500" fontSize={"2xl"} />{" "}
-                  aliyaghuti55@gmail.com
+                  {t("list-item-one")}
                 </ListItem>
                 <ListItem>
-                  <PhoneIcon as={PhoneIcon} color="green.500" /> +989126104995
+                  <PhoneIcon as={PhoneIcon} color="green.500" />
+                  {t("list-item-two")}
                 </ListItem>
                 <ListItem>
-                  <Text>Or find me on social media:</Text>
+                  <Text>{t("list-item-three")}</Text>
                   <List fontSize={"2xl"} my={4}>
                     <ListItem my={4}>
                       <Box align="center">
@@ -125,3 +134,12 @@ const Contact = () => {
 };
 
 export default Contact;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["contact", "nav"])),
+      // Will be passed to the page component as props
+    },
+  };
+}

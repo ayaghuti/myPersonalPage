@@ -1,6 +1,9 @@
 import { Flex, Img, Heading, Box, Spacer } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation("hero");
+
   return (
     <Box mb={2}>
       <Flex
@@ -20,10 +23,10 @@ const Hero = () => {
         </Box>
         <Box ml={[0, 2, 8, 8]} align="center">
           <Heading as="h1" size={"xl"} my={[0, 0, 4, 4]} py={2}>
-            Hi, my name is Ali Yaghuti.
+            {t("heading-h1")}
           </Heading>
           <Heading as="h2" size={"lg"} my={[0, 0, 4, 4]} py={2}>
-            Welcome to my site!
+            {t("heading-h2")}
           </Heading>
         </Box>
       </Flex>

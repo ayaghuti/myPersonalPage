@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   useColorMode,
   Button,
@@ -12,10 +13,16 @@ import NextLink from "next/link";
 import styled from "@emotion/styled";
 import { FaGithub } from "react-icons/fa";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+
+import { useTranslation } from "next-i18next";
+
 import DarkModeSwitch from "./DarkModeSwitch";
 import Footer from "../Footer";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const Container = ({ children }) => {
+  const { t } = useTranslation("nav");
+
   const { colorMode } = useColorMode();
   const [display, changeDisplay] = useState("none");
 
@@ -72,7 +79,7 @@ const Container = ({ children }) => {
               _haver={{ backgroundColor: navHoverBg[colorMode] }}
               aria-label="Home"
             >
-              Home
+              {t("home-button")}
             </Button>
           </NextLink>
           <NextLink href="/about" passHref>
@@ -83,7 +90,7 @@ const Container = ({ children }) => {
               _haver={{ backgroundColor: navHoverBg[colorMode] }}
               aria-label="About"
             >
-              About
+              {t("about-button")}
             </Button>
           </NextLink>
           <NextLink href="/contact" passHref>
@@ -94,7 +101,7 @@ const Container = ({ children }) => {
               _haver={{ backgroundColor: navHoverBg[colorMode] }}
               aria-label="Contact"
             >
-              Contact
+              {t("contact-button")}
             </Button>
           </NextLink>
         </Flex>
@@ -121,8 +128,11 @@ const Container = ({ children }) => {
           </Box>
 
           <Box>
-            <DarkModeSwitch />
+            <LocaleSwitcher />
           </Box>
+          {/* <Box>
+            <DarkModeSwitch />
+          </Box> */}
         </Stack>
         <Flex
           direction={["column"]}
@@ -157,7 +167,7 @@ const Container = ({ children }) => {
                 aria-label="Home"
                 onClick={() => changeDisplay("none")}
               >
-                Home
+                {t("home-button")}
               </Button>
             </NextLink>
             <NextLink href="/about" passHref>
@@ -169,7 +179,7 @@ const Container = ({ children }) => {
                 aria-label="About"
                 onClick={() => changeDisplay("none")}
               >
-                About
+                {t("about-button")}
               </Button>
             </NextLink>
             <NextLink href="/contact" passHref>
@@ -181,7 +191,7 @@ const Container = ({ children }) => {
                 aria-label="Contact"
                 onClick={() => changeDisplay("none")}
               >
-                Contact
+                {t("contact-button")}
               </Button>
             </NextLink>
           </Flex>
