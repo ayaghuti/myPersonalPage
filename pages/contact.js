@@ -53,7 +53,11 @@ const Contact = () => {
             </Box>
             <Box align="center">
               <Text fontSize="2xl" ml={4} align="center">
+<<<<<<< HEAD
                 {t("h2")}
+=======
+                You can reach me via:
+>>>>>>> 78d52242a3b21e21cc478a940e5c3d04fa314b5f
               </Text>
               <List
                 spacing={3}

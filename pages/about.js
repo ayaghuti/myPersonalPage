@@ -58,7 +58,14 @@ const About = () => {
               {t("name")}
             </Heading>
             <Text px={4} fontSize={["lg", "lg", "xl", "xl"]}>
+<<<<<<< HEAD
               {t("about-part-one")}{" "}
+=======
+              Ali Yaghutiniat is an Electronics Engineer who loves coding. It is
+              really amazing being able to create something from almost nothing.
+              Like a painter who gives life to a blank convas. To do so I have
+              gone through a roadmap from bootcamper in{" "}
+>>>>>>> 78d52242a3b21e21cc478a940e5c3d04fa314b5f
               <Link
                 href="https://www.freecodecamp.org/certification/ayaghutiniat/javascript-algorithms-and-data-structures"
                 isExternal
