@@ -59,8 +59,11 @@ const About = () => {
             </Heading>
             <Text px={4} fontSize={["lg", "lg", "xl", "xl"]}>
 <<<<<<< HEAD
+<<<<<<< HEAD
               {t("about-part-one")}{" "}
 =======
+=======
+>>>>>>> origin
               Ali Yaghutiniat is an Electronics Engineer who loves coding. It is
               really amazing being able to create something from almost nothing.
               Like a painter who gives life to a blank convas. To do so I have
